@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Informasi Keamanan Melaut</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS Utama -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ================= TOP BAR ================= -->
+    <div class="top-bar">
+        <div class="logo-section">
+            <div class="wave-icon">🌊</div>
+            <div class="brand-name">CUACA MARITIM</div>
+        </div>
+
+        <!-- Waktu realtime (sudah kamu buat di script.js) -->
+        <div class="time-display" id="timeDisplay">
+            Memuat waktu...
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Beranda</a>
+            <a href="informasi.html" class="active">Informasi</a>
+            <a href="panduan.html">Panduan</a>
+        </div>
+    </div>
+    <!-- =========================================== -->
+
+
+    <!-- ================= CONTENT ================= -->
+    <div class="info-container">
+
+        <!-- Judul Halaman -->
+        <div class="info-header">
+            <h1>Informasi Kondisi Cuaca Laut</h1>
+            <p>
+                Halaman ini berisi penjelasan mengenai gejala cuaca laut
+                yang digunakan dalam sistem pakar untuk memprediksi
+                tingkat keamanan melaut bagi nelayan.
+            </p>
+        </div>
+
+        <!-- ================= KOTAK GEJALA ================= -->
+        <div class="info-grid">
+
+            <!-- Cuaca -->
+            <div class="info-card dark-blue">
+                <h2>🌤️ Kondisi Cuaca</h2>
+                <ul>
+                    <li><strong>Cerah</strong> – Cuaca stabil, visibilitas baik</li>
+                    <li><strong>Berawan</strong> – Potensi perubahan cuaca</li>
+                    <li><strong>Hujan Ringan</strong> – Perlu kewaspadaan</li>
+                </ul>
+            </div>
+
+            <!-- Gelombang -->
+            <div class="info-card light-blue">
+                <h2>🌊 Tinggi Gelombang</h2>
+                <ul>
+                    <li><strong>Rendah</strong> – Aman untuk melaut</li>
+                    <li><strong>Sedang</strong> – Perlu kehati-hatian</li>
+                    <li><strong>Tinggi</strong> – Berisiko tinggi</li>
+                </ul>
+            </div>
+
+            <!-- Angin -->
+            <div class="info-card dark-blue">
+                <h2>💨 Jenis Angin</h2>
+                <ul>
+                    <li><strong>Aman</strong> – Angin stabil</li>
+                    <li><strong>Netral</strong> – Dapat berubah</li>
+                    <li><strong>Berbahaya</strong> – Mengancam keselamatan</li>
+                </ul>
+            </div>
+
+            <!-- Kecepatan Angin -->
+            <div class="info-card light-blue">
+                <h2>⚡ Kecepatan Angin</h2>
+                <ul>
+                    <li><strong>Lambat</strong> – Kondisi relatif aman</li>
+                    <li><strong>Sedang</strong> – Perlu waspada</li>
+                    <li><strong>Kencang</strong> – Risiko tinggi</li>
+                </ul>
+            </div>
+
+            <!-- Jarak Pandang -->
+            <div class="info-card dark-blue">
+                <h2>👁️ Jarak Pandang</h2>
+                <ul>
+                    <li><strong>Jelas</strong> – Navigasi aman</li>
+                    <li><strong>Cukup</strong> – Penglihatan terbatas</li>
+                    <li><strong>Terbatas</strong> – Sangat berbahaya</li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- =========================================== -->
+
+
+        <!-- ================= HASIL PREDIKSI ================= -->
+        <div class="info-section">
+            <h2>📊 Hasil Prediksi Sistem Pakar</h2>
+
+            <div class="result-info-grid">
+
+                <div class="result-card aman">
+                    <h3>✅ Aman</h3>
+                    <p>Kondisi laut stabil dan aman untuk aktivitas melaut.</p>
+                </div>
+
+                <div class="result-card waspada">
+                    <h3>⚠️ Waspada</h3>
+                    <p>Terdapat potensi risiko, nelayan harus berhati-hati.</p>
+                </div>
+
+                <div class="result-card tidak-aman">
+                    <h3>❌ Tidak Aman</h3>
+                    <p>Kondisi kurang mendukung, disarankan menunda melaut.</p>
+                </div>
+
+                <div class="result-card berbahaya">
+                    <h3>🚫 Berbahaya</h3>
+                    <p>Risiko tinggi terhadap keselamatan nelayan.</p>
+                </div>
+
+                <div class="result-card ekstrim">
+                    <h3>⛔ Ekstrim</h3>
+                    <p>Kondisi laut sangat berbahaya dan dilarang melaut.</p>
+                </div>
+
+            </div>
+        </div>
+        <!-- =========================================== -->
+
+    </div>
+    <!-- =========================================== -->
+
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
+
+</body>
+</html>

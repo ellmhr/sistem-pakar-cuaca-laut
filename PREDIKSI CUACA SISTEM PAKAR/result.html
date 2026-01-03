@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil Prediksi Cuaca Laut</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <div class="top-bar">
+        <div class="logo-section">
+            <div class="wave-icon">🌊</div>
+            <div class="brand-name">CUACA MARITIM</div>
+        </div>
+
+         <!-- JAM REAL-TIME -->
+    <div class="time-display" id="timeDisplay">
+        Memuat waktu...
+    </div>
+
+        <div class="nav-links">
+            <a href="index.html">Beranda</a>
+            <a href="informasi.html">Informasi</a>
+            <a href="panduan.html">Panduan</a>
+        </div>
+    </div>
+
+    <!-- Video Background -->
+    <video autoplay muted loop playsinline class="video-bg">
+        <source src="video/background.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <div class="result-container">
+        <div class="result-header">
+            <h1 class="result-title">Hasil Prediksi Keamanan Melaut</h1>
+        </div>
+
+        <!-- Result Card -->
+        <div class="result-card">
+            <div class="result-icon" id="resultIcon">📊</div>
+            <h2 class="result-status" id="hasil">Memuat...</h2>
+            <p class="result-description" id="deskripsi">Memproses data cuaca...</p>
+            
+            <div class="result-details" id="inputDetails"></div>
+        </div>
+
+        <a href="index.html" class="back-btn">
+            <span>← Analisis Ulang</span>
+        </a>
+    </div>
+
+    <script>
+        // Ambil hasil dari localStorage
+        const hasil = localStorage.getItem("hasil") || "Tidak diketahui";
+        const inputData = JSON.parse(localStorage.getItem("inputData") || "{}");
+
+        // Tampilkan hasil
+        document.getElementById("hasil").innerText = hasil;
+
+        // Deskripsi dan icon berdasarkan hasil
+        const resultInfo = {
+            "Aman": {
+                desc: "Kondisi cuaca relatif stabil dan aman untuk aktivitas melaut. Nelayan dapat melakukan aktivitas dengan tenang.",
+                icon: "✅",
+                color: "#4CAF50"
+            },
+            "Waspada": {
+                desc: "Cuaca perlu diwaspadai. Nelayan disarankan berhati-hati dan memperhatikan perkembangan cuaca.",
+                icon: "⚠️",
+                color: "#FF9800"
+            },
+            "Tidak Aman": {
+                desc: "Kondisi cuaca kurang aman, aktivitas melaut sebaiknya dibatasi. Disarankan untuk menunda perjalanan.",
+                icon: "⛔",
+                color: "#F44336"
+            },
+            "Berbahaya": {
+                desc: "Cuaca berbahaya, sangat tidak disarankan untuk melaut. Risiko tinggi terhadap keselamatan.",
+                icon: "🚫",
+                color: "#D32F2F"
+            },
+            "Ekstrim": {
+                desc: "Cuaca ekstrim, risiko sangat tinggi terhadap keselamatan jiwa. JANGAN melaut dalam kondisi ini!",
+                icon: "💀",
+                color: "#B71C1C"
+            }
+        };
+
+        const info = resultInfo[hasil] || {
+            desc: "Data cuaca tidak mencukupi untuk analisis.",
+            icon: "❓",
+            color: "#9E9E9E"
+        };
+
+        document.getElementById("deskripsi").innerText = info.desc;
+        document.getElementById("resultIcon").innerText = info.icon;
+        document.querySelector(".result-status").style.color = info.color;
+
+        // Tampilkan detail input
+        if (inputData.cuaca) {
+            const detailsHTML = `
+                <div class="input-detail-title">Data Input Cuaca:</div>
+                <div class="input-grid">
+                    <div class="input-item">
+                        <span class="input-label">Cuaca:</span>
+                        <span class="input-value">${inputData.cuaca}</span>
+                    </div>
+                    <div class="input-item">
+                        <span class="input-label">Gelombang:</span>
+                        <span class="input-value">${inputData.gelombang}</span>
+                    </div>
+                    <div class="input-item">
+                        <span class="input-label">Jenis Angin:</span>
+                        <span class="input-value">${inputData.angin}</span>
+                    </div>
+                    <div class="input-item">
+                        <span class="input-label">Kecepatan Angin:</span>
+                        <span class="input-value">${inputData.kecepatan}</span>
+                    </div>
+
+                    <!-- ✅ INPUT BARU: JARAK PANDANG -->
+                    <div class="input-item">
+                        <span class="input-label">Jarak Pandang:</span>
+                        <span class="input-value">${inputData.jarak}</span>
+                    </div>
+                </div>
+            `;
+            document.getElementById("inputDetails").innerHTML = detailsHTML;
+        }
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
